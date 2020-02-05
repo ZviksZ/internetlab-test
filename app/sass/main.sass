@@ -1,0 +1,244 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+*
+	margin: 0
+	padding: 0
+	box-sizing: border-box
+
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	color: $text
+	input, textarea
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid
+			border-color: red
+		&:required:valid
+			border-color: green
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+	&.img-width
+		width: 100%
+
+.text-center
+	text-align: center
+
+b, strong
+	font-weight: bold
+
+.container
+	padding: 0 4%
+
+
+/*--------HEADER------------*/
+
+.header
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100vh
+	transition: all 0.4s ease-in-out
+	&__wrap
+		display: flex
+		justify-content: flex-start
+		align-items: center
+		flex-wrap: wrap
+		height: 110px
+		&.header__open
+			background: #fff
+			.header__logo
+				&-white
+					display: none
+				&-black
+					display: block
+	&__logo
+		display: inline-block
+		padding: 25px 0
+		margin-left: 4%
+	&__menu
+		display: block
+		background: rgba(255, 255, 255, 0.7)
+		backdrop-filter: blur(50px)
+		width: 100%
+		height: 100%
+		transform-origin: right top
+		transition: all 0.4s ease-in-out
+		overflow: hidden
+		z-index: 55
+		padding-top: 100px
+		opacity: 0.99
+		transform: scale(1)
+		li
+			display: block
+			animation: fadeInRight 0.4s cubic-bezier(0.42, 0.83, 0.7, 1.5) forwards
+			animation-delay: 0.4s
+			transform: rotate(-7deg)
+			transform-origin: right bottom
+			&:nth-of-type(2)
+				animation-delay: 0.5s
+			&:nth-of-type(3)
+				animation-delay: 0.6s
+			&:nth-of-type(4)
+				animation-delay: 0.7s
+			&:nth-of-type(5)
+				animation-delay: 0.8s
+		&.menu__hide
+			display: none
+		ul
+			padding-left: 0
+			flex-wrap: wrap
+			.header__menu-item
+				width: 100%
+				text-align: center
+				margin-bottom: 25px
+				a
+					display: inline-block
+					font-size: 50px
+					text-transform: uppercase
+					border: 0
+					padding: 15px 25px
+					font-weight: 700
+					text-decoration: none
+					color: #303030
+					line-height: 1
+					&:after
+						display: block
+						content: ""
+						height: 3px
+						width: 0
+						background: #303030
+						transition: all 0.5s ease
+					&:hover
+						&:after
+							width: 100%
+	&__phone
+		margin-left: auto
+		display: flex
+		align-items: center
+		margin-right: 42px
+		a
+			display: inline-block
+			text-decoration: none
+			color: #ffffff
+			font-size: 24px
+			line-height: 29px
+			margin-left: 20px
+			&:after
+				display: block
+				content: ""
+				height: 1px
+				width: 0
+				background: #ffffff
+				transition: all 0.5s ease
+			&:hover
+				&:after
+					width: 100%
+	&__socials
+		display: flex
+		align-items: center
+		margin-right: 56px
+		a
+			display: inline-block
+			&:first-child
+				margin-right: 28px
+	&__logo
+		&-white
+		&-black
+			display: none
+	#burger__input
+		display: none
+	.burger__label
+		cursor: pointer
+		background: transparent
+		box-sizing: border-box
+		background-clip: content-box
+		width: 60px
+		height: 9px
+		border-top: 11px solid transparent
+		border-bottom: 11px solid transparent
+		-webkit-transform: rotate(0deg)
+		transform: rotate(0deg)
+		-webkit-transition: all 0.25s ease-in-out
+		transition: all 0.25s ease-in-out
+		z-index: 4
+		margin-right: 4%
+		&:before,
+		&:after
+			content: ""
+			position: absolute
+			background: #fff
+			height: 3px
+			width: 100%
+			right: 0
+			will-change: rotate
+			-webkit-transform: rotate(0deg)
+			transform: rotate(0deg)
+			-webkit-transition: all 0.5s ease
+			transition: all 0.5s ease
+		&:before
+			top: -10px
+		&:after
+			bottom: -10px
+	#burger__input:checked ~ .burger__label
+		background: transparent
+		background-clip: content-box
+	#burger__input:checked ~ .burger__label:before
+		-webkit-transform: rotate(135deg)
+		transform: rotate(135deg)
+		top: 0
+		background: #303030
+		width: 110%
+	#burger__input:checked ~ .burger__label:after
+		bottom: 0
+		-webkit-transform: rotate(-135deg)
+		transform: rotate(-135deg)
+		background: #303030
+		width: 110%
+
+
+
+@keyframes fadeInRight
+	0%
+		opacity: 0
+		left: 50px
+
+	100%
+		opacity: 1
+		left: 0
+		transform: rotate(0deg)
+
+/*-------END-HEADER------------*/
+
+
+/*--------TOP------------*/
+
+.top
+	background: url('../img/header/top-bg.png') no-repeat
+	-webkit-background-size: cover
+	background-size: cover
+	height: 960px
+
+/*-------END-TOP------------*/
+
+
+
+@import "media" // Always at the end
