@@ -47,7 +47,15 @@ b, strong
 .container
 	padding: 0 4%
 	position: relative
-
+.block__title
+	font-family: $secondary-font
+	font-size: 70px
+	line-height: 70px
+	text-transform: uppercase
+	font-weight: 700
+	text-align: center
+	color: $accent
+	margin-bottom: 70px
 
 /*--------HEADER------------*/
 
@@ -58,7 +66,7 @@ b, strong
 	width: 100%
 	height: auto
 	transition: all 0.4s ease-in-out
-	z-index: 6
+	z-index: 99
 	&.header__open
 		height: 100vh
 		.header__wrap
@@ -71,6 +79,8 @@ b, strong
 			.header__phone
 				a
 					color: #303030
+					&:after
+						background: #303030
 			#burger__icon
 				background: transparent
 				background-clip: content-box
@@ -81,12 +91,13 @@ b, strong
 					background: #303030
 					width: 110%
 				&:after
-					bottom: 0
+					bottom: -3px
 					-webkit-transform: rotate(-135deg)
 					transform: rotate(-135deg)
 					background: #303030
 					width: 110%
 	&.header__scroll
+		transition: all 0.4s ease-in-out
 		.header__wrap
 			background: #fff
 			.header__logo
@@ -97,6 +108,8 @@ b, strong
 			.header__phone
 				a
 					color: #303030
+					&:after
+						background: #303030
 			#burger__icon
 				&:before,&:after
 					background: #303030
@@ -165,7 +178,7 @@ b, strong
 					&:hover
 						&:after
 							width: 100%
-	&__phone
+	&__phone, &__phone--mob
 		margin-left: auto
 		display: flex
 		align-items: center
@@ -177,6 +190,7 @@ b, strong
 			font-size: 24px
 			line-height: 29px
 			margin-left: 20px
+			font-weight: 700
 			&:after
 				display: block
 				content: ""
@@ -187,7 +201,16 @@ b, strong
 			&:hover
 				&:after
 					width: 100%
-	&__socials
+	&__phone--mob
+		margin-right: 0
+		justify-content: center
+		a
+			color: #303030
+			font-size: 24px
+			font-weight: 700
+			&:after
+				display: none
+	&__socials, &__socials--mob
 		display: flex
 		align-items: center
 		margin-right: 56px
@@ -195,9 +218,14 @@ b, strong
 			display: inline-block
 			&:first-child
 				margin-right: 28px
+	&__socials--mob
+		margin: 0
+		justify-content: center
 	&__logo
 		&-black
 			display: none
+	&__phone--mob, &__socials--mob
+		visibility: visible
 	#burger__icon
 		cursor: pointer
 		background: transparent
@@ -254,6 +282,8 @@ b, strong
 	-webkit-background-size: cover
 	background-size: cover
 	padding-top: 185px
+	display: flex
+	flex-direction: column
 	&__title
 		font-family: $secondary-font
 		font-size: 90px
@@ -324,19 +354,200 @@ b, strong
 
 .slider-block
 	padding-top: 90px
-	&__title
-		font-family: $secondary-font
-		font-size: 70px
-		line-height: 70px
-		text-transform: uppercase
-		font-weight: 700
-		text-align: center
-		color: $accent
-		margin-bottom: 70px
+	padding-bottom: 145px
+	&__slider
+		margin-bottom: 100px
+		.slick-dots
+			bottom: -80px
+			li:not(.slick-active)
+				display: none
+			li
+				font-size: 24px
+				color: #303030
+				font-weight: 700
+				width: 200px
+				text-align: center
+		.slider-prev, .slider-next
+			position: absolute
+			display: flex
+			justify-content: center
+			align-items: center
+			width: 30px
+			height: 24px
+			cursor: pointer
+			background: transparent
+			color: transparent
+			bottom: -77px
+			padding: 0
+			outline: none
+			transition: all 0.4s linear
+			z-index: 33
+		.slider-prev
+			left: calc(50% - 130px)
+		.slider-next
+			right: calc(50% - 130px)
+		.slider-prev:hover
+			&:before
+				background: url(../img/slider/arrow-active.svg) no-repeat
+				transform: rotate(180deg)
+				background-size: 100% 100%
+		.slider-next:hover
+			&:before
+				background: url(../img/slider/arrow-active.svg) no-repeat
+				transform: rotate(0deg)
+				background-size: 100% 100%
+		.slider-prev:before,
+		.slider-next:before
+			display: block
+			content: ''
+			background: url(../img/slider/arrow.svg) no-repeat
+			width: 30px
+			height: 24px
+			background-size: 100% 100%
+		.slider-next:before
+			transform: rotate(180deg)
+		.item
+			display: flex !important
+			width: 100%
+			.border-left
+				width: 52px
+				border-left: 30px solid $accent
+				border-top: 30px solid $accent
+				border-bottom: 30px solid $accent
+			.border-right
+				width: 52px
+				border-right: 30px solid $accent
+				border-top: 30px solid $accent
+				border-bottom: 30px solid $accent
+			.column-right
+				text-align: center
+				padding: 0 5%
+				img
+					width: 100%
+					max-width: 100%
+					height: auto
+			.column-left
+				width: 60%
+				padding: 30px 20px 0 96px
+				.name
+					font-family: $secondary-font
+					font-weight: 700
+					text-transform: uppercase
+					font-size: 40px
+					line-height: 40px
+					color: #888888
+					margin-bottom: 20px
+					span
+						display: inline-block
+						width: 100%
+						font-size: 70px
+						color: $accent
+						margin-bottom: 20px
+				.subtitle
+					font-size: 13px
+					line-height: 16px
+					letter-spacing: 0.155em
+					text-transform: uppercase
+					color: #303030
+					margin-bottom: 40px
+					font-weight: 300
+				.item__list
+					padding-left: 0
+					list-style: none
+					li
+						font-size: 18px
+						line-height: 1
+						color: #303030
+						font-weight: 300
+						position: relative
+						padding-left: 28px
+						margin-bottom: 15px
+						&:before
+							display: block
+							content: ""
+							position: absolute
+							left: 0
+							top: calc(50% - 5px)
+							width: 10px
+							height: 10px
+							background: $accent
+							border-radius: 3px
+				.item__text-block
+					margin-top: 45px
+					margin-bottom: 24px
+					&:last-child
+						margin-top: 0
+						margin-bottom: 10px
+					h4
+						font-size: 18px
+						color: #000000
+						font-weight: 700
+					p
+						font-size: 18px
+						color: #303030
+						line-height: 30px
+
+
 
 
 
 /*-------END-SLIDER-BLOCK------------*/
+
+
+/*-------COMPANIES------------*/
+
+.companies
+	padding-top: 70px
+	padding-bottom: 122px
+	background: linear-gradient(180deg, #FDF4F4 0%, #ECF3EC 100%)
+	&__list
+		display: flex
+		justify-content: space-between
+		flex-wrap: wrap
+		.item
+			width: 22%
+			overflow: hidden
+			text-decoration: none
+			margin-bottom: 56px
+			&:hover
+				.logo
+					transform: scale(1.1)
+			.logo
+				width: 100%
+				max-width: 100%
+				height: auto
+				box-shadow: 0 0 15px rgba(0, 0, 0, 0.15)
+				transition: 0.5s
+			.title
+				font-size: 18px
+				line-height: 160%
+				color: #303030
+				font-weight: 700
+				margin-top: 30px
+				margin-bottom: 15px
+			.text
+				font-size: 18px
+				line-height: 160%
+				color: #303030
+				font-weight: 300
+
+
+/*-------END-COMPANIES------------*/
+
+
+/*-------FOOTER------------*/
+
+.footer
+	background: #ffffff
+	&__wrap
+		display: flex
+		justify-content: space-between
+		align-items: center
+		min-height: 68px
+		.copyright
+			font-size: 18px
+			font-weight: 300
+/*-------END-FOOTER------------*/
 
 
 
