@@ -72,7 +72,179 @@
           line-height: 110%
         .title, .text
           font-size: 16px
-/*@media screen and (max-width: 768px)*/
+
+@media screen and (max-width: 768px)
+  .top
+    padding-top: 150px
+    &__btn
+      margin: 50px auto
+    &__title
+      font-size: 45px
+      line-height: 1
+      margin-bottom: 0
+    &__subtitle
+      font-size: 25px
+    &__awards
+      margin-top: 25px
+      .item
+        span
+          margin-left: 20px
+          font-size: 19px
+          &.active
+            font-size: 23px
+  .slider-block
+    .slick-list
+      height: auto !important
+    .item
+      padding-bottom: 20px
+      flex-direction: column-reverse
+      align-items: center
+      .border-right, .border-left
+        display: none
+      .column-left
+        width: 80%
+        padding: 0
+        display: flex
+        flex-direction: column
+        align-items: center
+        text-align: center
+        .item__list
+          margin-top: 30px
+          display: none
+          li
+            text-align: left
+        .item__text-block
+          width: 100%
+          display: none
+          text-align: left
+    .hide-show-Btn
+      display: block
+      background: transparent
+      border: 1px solid #888888
+      border-radius: 4px
+      font-size: 13px
+      letter-spacing: 0.155em
+      text-transform: uppercase
+      color: #888888
+      padding: 10px 25px
+      transition: 0.5s
+      outline: none
+      &:hover
+        background: #888888
+        color: #ffffff
+  .companies
+    padding-top: 30px
+    padding-bottom: 20px
+    &__filter
+      display: flex
+      justify-content: space-around
+      flex-wrap: wrap
+      .item
+        width: 23%
+        display: flex
+        justify-content: center
+        align-items: center
+        background: #ffffff
+        border: 1px solid #888888
+        border-radius: 4px
+        padding: 10px 0
+        margin-bottom: 10px
+        &.active, &:hover
+          background: $accent
+          border: 1px solid $accent
+          span
+            color: #ffffff
+        span
+          color: #888888
+          font-size: 13px
+          font-weight: 700
+    &__list
+      justify-content: space-around
+      .item
+        width: 47%
+        .title
+          line-height: 110%
+        .title, .text
+          font-size: 16px
+
+@media screen and (max-width: 586px)
+  .top
+    padding-top: 150px
+    -webkit-background-size: 100% 300px
+    background-size: 100% 300px
+    .container
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+    &__btn
+      margin: 70px auto 30px
+      order: 2
+    &__title
+      font-size: 45px
+      line-height: 1
+      margin-bottom: 0
+    &__subtitle
+      font-size: 25px
+    &__awards
+      margin-top: 25px
+      order: 3
+      .item
+        span
+          margin-left: 20px
+          font-size: 19px
+          color: #303030
+          &.active
+            font-size: 23px
+            color: #fff
 
 
-
+@media screen and (max-width: 470px)
+  .header
+    &__logo
+      img
+        width: 70%
+  .top
+    padding-top: 150px
+    background-size: 100% 280px
+    &__btn
+      margin: 30px auto 30px
+      font-size: 16px
+      padding-left: 25px
+      padding-right: 25px
+      text-align: center
+    &__title
+      font-size: 35px
+      line-height: 1
+      margin-bottom: 20px
+    &__subtitle
+      font-size: 20px
+      line-height: 1
+    &__awards
+      margin-top: 25px
+      .item
+        span
+          margin-left: 20px
+          font-size: 19px
+          &.active
+            font-size: 21px
+  .slider-block
+    .slick-list
+      height: auto !important
+    .item
+      padding-bottom: 20px
+      flex-direction: column-reverse
+      align-items: center
+      .border-right, .border-left
+        display: none
+      .column-left
+        width: 100%
+  .companies
+    &__list
+      margin-top: 20px
+      .item
+        width: 100%
+        margin-bottom: 30px
+  .footer
+    .footer__wrap
+      .copyright
+        font-size: 15px

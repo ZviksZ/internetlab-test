@@ -2,6 +2,7 @@ $(function() {
    $(document).ready(function () {
       toggleMenu()
       scrollChangeMenu()
+      toggleSliderItemText()
       sliderBlockSlider()
    });
 
@@ -9,6 +10,18 @@ $(function() {
       $('#burger__icon').click(function() {
          $('.header').toggleClass('header__open')
          $('.header__menu').toggleClass('menu__hide')
+      })
+   }
+
+   function toggleSliderItemText() {
+      $('.hide-show-Btn').click(function() {
+         if ($(this).text() === 'Показать') {
+            $('.item__list, .item__text-block').css('display','block')
+            $('.hide-show-Btn').text('Скрыть')
+         } else {
+            $('.item__list, .item__text-block').css('display','none')
+            $('.hide-show-Btn').text('Показать')
+         }
       })
    }
 
@@ -41,5 +54,8 @@ $(function() {
          },
       });
    }
+
+
+
 
 });
